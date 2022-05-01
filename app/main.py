@@ -10,7 +10,7 @@ app = FastAPI()
 
 models.Base.metadata.create_all(bind=engine)
 
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=["example.com", "*.example.com"]
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=["example.com", "*.example.com", "localhost"]
 )
 def get_db():
     db = SessionLocal()
