@@ -10,8 +10,11 @@ app = FastAPI()
 
 models.Base.metadata.create_all(bind=engine)
 
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=["example.com", "*.example.com", "localhost"]
+app.add_middleware(
+    TrustedHostMiddleware, allowed_hosts=["example.com", "*.example.com", "localhost"]
 )
+
+
 def get_db():
     db = SessionLocal()
     try:
@@ -53,4 +56,3 @@ def create_item_for_user(
 def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     items = crud.get_items(db, skip=skip, limit=limit)
     return items
-
