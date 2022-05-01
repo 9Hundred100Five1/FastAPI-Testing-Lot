@@ -15,3 +15,4 @@ engine = create_engine(DB_URL, encoding="utf-8")
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
+## ## ## ## ## ## ## ## ## ## ##
