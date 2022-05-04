@@ -13,6 +13,9 @@ class User(Base):
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
     agreePolicy = Column(Boolean, default=True)
+    year = Column(Integer, primary_key=True, index=True)
+    month = Column(Integer, primary_key=True, index=True)
+    day = Column(Integer, primary_key=True, index=True)
 
     items = relationship("Item", back_populates="owner")
 
@@ -26,3 +29,5 @@ class Item(Base):
     owner_id = Column(Integer, ForeignKey("users.id"))
 
     owner = relationship("User", back_populates="items")
+    
+
